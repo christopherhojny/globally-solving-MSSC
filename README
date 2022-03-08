@@ -1,0 +1,67 @@
+Additional information about the code for the paper
+
+   Mixed-Integer Programming Techniques for the Minimum Sum-of-Squares
+   Clustering Problem
+   by Jan Pablo Burgard, Carina Moreira Costa, Christopher Hojny,
+   Thomas Kleinert, and Martin Schmidt.
+
+
+I STEPS OF THE CODE
+
+1. To run the program, enter
+   "bin/kmeans.$(OSTYPE).$(ARCH).$(COMP).$(OPT).$(LPS)
+   (e.g. "bin/kmeans.linux.x86_64.gnu.opt.spx2"). The first two arguments
+   are mandatory and specify the file containing the set of data points and
+   the number of clusters. An exemplary call is
+
+   ./bin/kmeans.linux.x86_64.gnu.opt.spx <path/to/instance> <number of clusters>
+
+   Additional parameters can be:
+
+   -s <setting file>
+   -t <time limit>
+   -m <mem limit>
+   -n <node limit>
+   -d <display frequency>
+
+2. We assume that the sets of data points are encoded using the following format:
+
+   The first row is 'npoints dimension' and encodes the number of points
+   contained in set the instance file as well as the dimension of the ambient space.
+
+   The remaining rows contain the coordinates of the points as a whitespace separated
+   list.
+
+   For example,
+
+   4 2
+   0 0
+   0 1
+   1 0
+   1 1
+
+   encodes the {0,1}-cube in dimension 2.
+
+3. After reading the problem, an MINLP for computing an optimal cluster assigment
+   is created and solved. Depending on the parameter setting, the quadratic
+   or epigraph model is used as described in the article. By default, the
+   epigraph model is used.
+
+
+II PARAMETERS FOR SETTINGS FILES
+
+There exist different parameters that can be used to change the behavior
+of the code. The most important one is
+
+clustering/model = value
+
+which controls the method used to compute an optimal cluster assignment.
+The following values encode the different models:
+
+- 0: the quadratic model
+- 1: the epigraph model without squared norms
+- 2: the epigraph model
+
+The remaining parameters control, i.a., how many OA cuts are used or
+whether localized cardinality cuts are active. A list of all parameters
+including a short description can be found in clusteringParams.c.

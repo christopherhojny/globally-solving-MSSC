@@ -1,0 +1,11 @@
+clustering/model = 2
+clustering/usepropcard = TRUE
+clustering/uselocalizedcardcut = TRUE
+branching/entropy/priority = 500000
+branching/maxdist/priority = -500000
+propagating/barycenter/freq = 1
+propagating/convexity/freq = 1
+propagating/distance/freq = 1
+separating/gradient/freq = 1
+heuristics/kmeansround/freq = 1
+heuristics/improve/freq = 1

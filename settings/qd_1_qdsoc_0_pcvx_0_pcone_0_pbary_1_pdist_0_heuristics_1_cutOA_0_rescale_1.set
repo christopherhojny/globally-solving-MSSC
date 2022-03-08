@@ -1,0 +1,14 @@
+clustering/model = 0
+clustering/uselocalizedcardcut = FALSE
+clustering/kappaisintegral = FALSE
+separating/gradient/freq = -1
+propagating/barycenter/freq = 1
+propagators/barycenter/usestrongcprop = FALSE
+propagating/convexity/freq = -1
+propagators/convexity/useconeprop = FALSE
+propagating/distance/freq = -1
+heuristics/kmeansround/freq = 1
+heuristics/improve/freq = 1
+clustering/usewarmstartsol = TRUE
+clustering/shiftdatapoints = TRUE
+clustering/checkifrescaledata = TRUE
